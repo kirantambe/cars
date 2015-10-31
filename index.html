@@ -12,6 +12,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bower_components/angular-loading/angular-loading.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -28,14 +29,18 @@
   <script type="text/javascript" src="chrome-extension://aadgmnobpdmgmigaicncghmmoeflnamj/ng-inspector.js"></script><meta name="chromesniffer" id="chromesniffer_meta" content="{&quot;jQuery&quot;:&quot;1.11.3&quot;}"><script type="text/javascript" src="chrome-extension://homgcnaoacgigpkkljjjekpignblkeae/detector.js"></script></head>
 <!-- NAVBAR
 ================================================== -->
-  <body>
+  <body data-ng-app="carApp">
     <div class="navbar-wrapper">
       <div class="nav-container">
 
         <nav class="navbar navbar-inverse navbar-static-top">
           <div>
             <div class="navbar-header">
-              <a class="navbar-brand" href="#">CAR NEWS</a>
+              <div class="navbar-brand">
+                <span class="brand-header">CARNEWS</span><br>
+                <span class="brand-subheader">everything about the car</span>
+              </div>
+
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
@@ -82,40 +87,34 @@
         <span class="sr-only">Next</span>
       </a>
     </div><!-- /.carousel -->
-
-
-    <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
-
-    <div class="container">
+    <div class="container" data-ng-controller="MainController">
       <div class="row img-container">
-        <div class="col-xs-6 col-md-3">
-          <a href="#" class="thumbnail">
+        <div class="col-xs-3">
+          <a role="button" data-ng-class="selectedCar.id=='go'? 'active': ''" class="thumbnail" data-ng-click="selectCar('go')">
             <img src="images/car1.jpg">
             <div class="caption">
               <small>DATSUN GO</small>
             </div>
           </a>
         </div>
-        <div class="col-xs-6 col-md-3">
-          <a href="#" class="thumbnail">
+        <div class="col-xs-3">
+          <a role="button" data-ng-class="selectedCar.id=='swift'? 'active': ''" class="thumbnail" data-ng-click="selectCar('swift')">
             <img src="images/car2.jpg">
             <div class="caption">
               <small>MARUTI SWIFT</small>
             </div>
           </a>
         </div>
-        <div class="col-xs-6 col-md-3">
-          <a href="#" class="thumbnail">
+        <div class="col-xs-3">
+          <a role="button" data-ng-class="selectedCar.id=='eon'? 'active': ''" class="thumbnail" data-ng-click="selectCar('eon')">
             <img src="images/car3.jpg">
             <div class="caption">
               <small>HYUNDAI EON</small>
             </div>
           </a>
         </div>
-        <div class="col-xs-6 col-md-3">
-          <a href="#" class="thumbnail">
+        <div class="col-xs-3">
+          <a role="button" data-ng-class="selectedCar.id=='kwid'? 'active': ''" class="thumbnail" data-ng-click="selectCar('kwid')">
             <img src="images/car4.jpg">
             <div class="caption">
               <small>RENAULT KWID</small>
@@ -123,56 +122,83 @@
           </a>
         </div>
       </div>
-      <div class="row">
+      <div class="row" dw-loading="mainContainer">
         <div class="col-md-12">
-          <h3><strong>Maruti Swift</strong></h3>
-          <h5>4.9-7.6 Lac*</h5>
-          <h7><strong>KEY FEATURES of Maruti Swift ZDi</strong>(Diesel)</h7>
+          <h3><strong>{{selectedCar.name}}</strong></h3>
+          <h5>{{selectedCar.price_start}}-{{selectedCar.price_end}} Lac*</h5>
+          <h7><strong>KEY FEATURES of {{selectedCar.name}}</strong></h7>
           <hr>
           <div class="row">
             <div class="col-md-5 description">
               <ul class="list-group">
                 <li class="list-group-item">
-                  Ex-showroom Price New Delhi
-                  <input type="text" class="pull-right"/>
+                  <div class="row">
+                    <div class="col-sm-8"><label>Ex-showroom Price New Delhi</label></div>
+                    <div class="col-sm-4">
+                      <input type="text" data-ng-model="selectedCar.esp"
+                                                 class="pull-right form-control"/>
+                    </div>
+                  </div>
                 </li>
                 <li class="list-group-item">
-                  City/Highway Fuel Economy
-                  <input type="text" class="pull-right"/>
+                  <div class="row">
+                    <div class="col-sm-8"><label>City/Highway Fuel Economy(kmpl)</label></div>
+                    <div class="col-sm-4"><input type="text" data-ng-model="selectedCar.economy"
+                                                 class="pull-right form-control"/></div>
+                  </div>
                 </li>
                 <li class="list-group-item">
-                  Fuel Type
-                  <input type="text" class="pull-right"/>
+                  <div class="row">
+                    <div class="col-sm-8"><label>Fuel Type</label></div>
+                    <div class="col-sm-4"><input type="text" data-ng-model="selectedCar.fuel_type"
+                                                 class="pull-right form-control"/></div>
+                  </div>
                 </li>
                 <li class="list-group-item">
-                  Engine Displacement
-                  <input type="text" class="pull-right"/>
+                  <div class="row">
+                    <div class="col-sm-8"><label>Engine Displacement(cc)</label></div>
+                    <div class="col-sm-4">
+                      <input type="text" data-ng-model="selectedCar.displacement"
+                                                 class="pull-right form-control"/></div>
+                  </div>
                 </li>
                 <li class="list-group-item">
-                  BHP
-                  <input type="text" class="pull-right"/>
+                  <div class="row">
+                    <div class="col-sm-8"><label>BHP</label></div>
+                    <div class="col-sm-4"><input type="text" data-ng-model="selectedCar.bhp"
+                                                 class="pull-right form-control"/></div>
+                  </div>
                 </li>
                 <li class="list-group-item">
-                  Torque
-                  <input type="text" class="pull-right"/>
+                  <div class="row">
+                    <div class="col-sm-8"><label>Torque</label></div>
+                    <div class="col-sm-4"><input type="text" data-ng-model="selectedCar.torque"
+                                                 class="pull-right form-control"/></div>
+                  </div>
                 </li>
               </ul>
             </div>
             <div class="col-md-7">
-              Images
+              <div class="row">
+                <div class="col-xs-4"><a class="thumbnail" href="#"><img src="images/in1.jpg"
+                                                                         alt=""/></a></div>
+                <div class="col-xs-4"><a class="thumbnail" href="#"><img src="images/in2.jpg"
+                                                                         alt=""/></a></div>
+                <div class="col-xs-4"><a class="thumbnail" href="#"><img src="images/in3.jpg"
+                                                                         alt=""/></a></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-4"><a class="thumbnail" href="#"><img src="images/in4.jpg"
+                                                                         alt=""/></a></div>
+                <div class="col-xs-4"><a class="thumbnail" href="#"><img src="images/in3.jpg"
+                                                                         alt=""/></a></div>
+                <div class="col-xs-4"><a class="thumbnail" href="#"><img src="images/in2.jpg"
+                                                                         alt=""/></a></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-
-
-      <!-- FOOTER -->
-      <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>© 2014 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
-      </footer>
-
     </div><!-- /.container -->
 
 
@@ -185,6 +211,10 @@
     <script src="../../assets/js/vendor/holder.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="bower_components/spin.js/spin.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-loading/angular-loading.js"></script>
+    <script src="app.js"></script>
 
 
 </body></html>

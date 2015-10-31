@@ -30,11 +30,12 @@
 ================================================== -->
   <body>
     <div class="navbar-wrapper">
-      <div class="container">
+      <div class="nav-container">
 
         <nav class="navbar navbar-inverse navbar-static-top">
-          <div class="container">
+          <div>
             <div class="navbar-header">
+              <a class="navbar-brand" href="#">CAR NEWS</a>
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
@@ -45,10 +46,10 @@
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 <li class="active"><a href="#">CARS NEWS HOME</a></li>
-                <li><a href="#about">CAR POST</a></li>
-                <li><a href="#contact">CAR SHOP</a></li>
-                <li><a href="#contact">CAR PAGES</a></li>
-                <li><a href="#contact">NEWS & BLOG</a></li>
+                <li><a href="">CAR POST</a></li>
+                <li><a href="">CAR SHOP</a></li>
+                <li><a href="">CAR PAGES</a></li>
+                <li><a href="">NEWS & BLOG</a></li>
               </ul>
             </div>
           </div>
@@ -60,13 +61,7 @@
 
     <!-- Carousel
     ================================================== -->
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class=""></li>
-        <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="2" class=""></li>
-      </ol>
+    <div id="carSlider" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner" role="listbox">
         <div class="item active left">
           <img class="first-slide" src="images/slide1.jpg" alt="First slide">
@@ -78,11 +73,11 @@
           <img class="third-slide" src="images/slide3.jpg" alt="Third slide">
         </div>
       </div>
-      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <a class="left carousel-control" href="#carSlider" role="button" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
       </a>
-      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <a class="right carousel-control" href="#carSlider" role="button" data-slide="next">
         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
@@ -93,72 +88,83 @@
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
 
-    <div class="container marketing">
-
-      <!-- Three columns of text below the carousel -->
+    <div class="container">
+      <div class="row img-container">
+        <div class="col-xs-6 col-md-3">
+          <a href="#" class="thumbnail">
+            <img src="images/car1.jpg">
+            <div class="caption">
+              <small>DATSUN GO</small>
+            </div>
+          </a>
+        </div>
+        <div class="col-xs-6 col-md-3">
+          <a href="#" class="thumbnail">
+            <img src="images/car2.jpg">
+            <div class="caption">
+              <small>MARUTI SWIFT</small>
+            </div>
+          </a>
+        </div>
+        <div class="col-xs-6 col-md-3">
+          <a href="#" class="thumbnail">
+            <img src="images/car3.jpg">
+            <div class="caption">
+              <small>HYUNDAI EON</small>
+            </div>
+          </a>
+        </div>
+        <div class="col-xs-6 col-md-3">
+          <a href="#" class="thumbnail">
+            <img src="images/car4.jpg">
+            <div class="caption">
+              <small>RENAULT KWID</small>
+            </div>
+          </a>
+        </div>
+      </div>
       <div class="row">
-        <div class="col-lg-4">
-          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-          <h2>Heading</h2>
-          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-        </div><!-- /.col-lg-4 -->
-      </div><!-- /.row -->
-
-
-      <!-- START THE FEATURETTES -->
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7 col-md-push-5">
-          <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
-        <div class="col-md-5 col-md-pull-7">
-          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+        <div class="col-md-12">
+          <h3><strong>Maruti Swift</strong></h3>
+          <h5>4.9-7.6 Lac*</h5>
+          <h7><strong>KEY FEATURES of Maruti Swift ZDi</strong>(Diesel)</h7>
+          <hr>
+          <div class="row">
+            <div class="col-md-5 description">
+              <ul class="list-group">
+                <li class="list-group-item">
+                  Ex-showroom Price New Delhi
+                  <input type="text" class="pull-right"/>
+                </li>
+                <li class="list-group-item">
+                  City/Highway Fuel Economy
+                  <input type="text" class="pull-right"/>
+                </li>
+                <li class="list-group-item">
+                  Fuel Type
+                  <input type="text" class="pull-right"/>
+                </li>
+                <li class="list-group-item">
+                  Engine Displacement
+                  <input type="text" class="pull-right"/>
+                </li>
+                <li class="list-group-item">
+                  BHP
+                  <input type="text" class="pull-right"/>
+                </li>
+                <li class="list-group-item">
+                  Torque
+                  <input type="text" class="pull-right"/>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-7">
+              Images
+            </div>
+          </div>
         </div>
       </div>
 
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <!-- /END THE FEATURETTES -->
 
 
       <!-- FOOTER -->
